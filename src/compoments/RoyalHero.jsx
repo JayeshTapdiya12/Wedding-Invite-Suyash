@@ -3,7 +3,7 @@ import '../styles/RoyalHero.css';
 
 const RoyalHero = () => {
     const videoRef = useRef(null);
-    const STOP_TIME = 4.2;
+    const STOP_TIME = 10;
 
     useEffect(() => {
         const video = videoRef.current;
@@ -39,7 +39,7 @@ const RoyalHero = () => {
                     preload="auto"
                 >
                     <source
-                        src="https://res.cloudinary.com/dwsv6ggaa/video/upload/v1774888015/From_Main_Klickpin_CF-_Love_takes_form_in_every_detail_we_design_-_3eMeRNPjd_htngd7.mp4"
+                        src="https://res.cloudinary.com/dwsv6ggaa/video/upload/v1774888245/From_Main_Klickpin_CF-_Magical_Beach-Themed_Ring_Ceremony_Invitation_-_3hrmJPiz9_xb3ozi.mp4"
                         type="video/mp4"
                     />
                     Your browser does not support the video tag.

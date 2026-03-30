@@ -15,7 +15,7 @@ function App() {
     // 5.2s duration: Exactly the length of your video fragment
     const timer = setTimeout(() => {
       setStage("reveal");
-    }, 5200);
+    }, 9000);
 
     return () => clearTimeout(timer);
   }, []);
