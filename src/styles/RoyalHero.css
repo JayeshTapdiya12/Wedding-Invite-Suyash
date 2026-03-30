@@ -9,7 +9,6 @@
   justify-content: center;
   overflow: hidden;
   /* Thinner border for small screens to save space */
-  border: 6px double #c5a059;
   box-sizing: border-box;
   z-index: 10;
 }
@@ -33,21 +32,12 @@
 
 /* Tablet Screens (768px and up) */
 @media screen and (min-width: 768px) {
-  .hero-section {
-    border: 10px double #c5a059;
-  }
 }
 
 /* Desktop Screens (1024px and up) */
 @media screen and (min-width: 1024px) {
-  .hero-section {
-    border: 15px double #c5a059;
-  }
 }
 
 /* Landscape Mode for Mobile (Ensures UI doesn't break when phone is tilted) */
 @media screen and (max-height: 500px) and (orientation: landscape) {
-  .hero-section {
-    border: 5px double #c5a059;
-  }
 }
