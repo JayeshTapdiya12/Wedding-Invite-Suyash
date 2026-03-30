@@ -9,9 +9,10 @@ const RoyalHero = () => {
         const video = videoRef.current;
         if (!video) return;
 
-        // Force attempt to play (Autoplay policy handling)
         const attemptPlay = () => {
-            video.play().catch(err => console.log("Autoplay waiting for user interaction"));
+            video.play().catch(() => {
+                console.log("Autoplay blocked, waiting for user interaction");
+            });
         };
 
         attemptPlay();
@@ -21,7 +22,7 @@ const RoyalHero = () => {
         const video = videoRef.current;
         if (video && video.currentTime >= STOP_TIME) {
             video.pause();
-            video.currentTime = STOP_TIME; // Locks it at exactly 5.2s
+            video.currentTime = STOP_TIME;
         }
     };
 
@@ -33,10 +34,9 @@ const RoyalHero = () => {
                     autoPlay
                     muted
                     playsInline
+                    preload="auto"
                     onTimeUpdate={handleTimeUpdate}
                     className="hero-video"
-                    // Adding "preload" helps ensure the browser has the data to stop accurately
-                    preload="auto"
                 >
                     <source
                         src="https://res.cloudinary.com/dwsv6ggaa/video/upload/v1774888884/From_KlickPin_CF_Engaged_couple_illustration___Engaged_couples_illustration_hpdj3s.mp4"
