@@ -1,12 +1,48 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import '../styles/RoyalHero.css';
 
 const RoyalHero = () => {
+    const videoRef = useRef(null);
+    const STOP_TIME = 5.2;
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        // Force attempt to play (Autoplay policy handling)
+        const attemptPlay = () => {
+            video.play().catch(err => console.log("Autoplay waiting for user interaction"));
+        };
+
+        attemptPlay();
+    }, []);
+
+    const handleTimeUpdate = () => {
+        const video = videoRef.current;
+        if (video && video.currentTime >= STOP_TIME) {
+            video.pause();
+            video.currentTime = STOP_TIME; // Locks it at exactly 5.2s
+        }
+    };
+
     return (
         <section className="hero-section">
             <div className="video-container">
-                <video autoPlay playsInline className="hero-video">
-                    <source src="https://res.cloudinary.com/dwsv6ggaa/video/upload/v1774887364/introvideo_puwjw2.mp4#t=0,5.2" type="video/mp4" />
+                <video
+                    ref={videoRef}
+                    autoPlay
+                    muted
+                    playsInline
+                    onTimeUpdate={handleTimeUpdate}
+                    className="hero-video"
+                    // Adding "preload" helps ensure the browser has the data to stop accurately
+                    preload="auto"
+                >
+                    <source
+                        src="https://res.cloudinary.com/dwsv6ggaa/video/upload/v1774887364/introvideo_puwjw2.mp4"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
                 </video>
             </div>
         </section>
