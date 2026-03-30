@@ -1,0 +1,212 @@
+/* ================= COUNTDOWN SECTION (SANDWICH) ================= */
+.sandwich-layout {
+  position: relative;
+  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #e6e6fa; /* Deep Midnight Navy */
+  padding: 40px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* --- 1. TOP SECTION (Fixed Height Content) --- */
+.top-content {
+  flex: 0 0 auto; /* Do not grow, do not shrink */
+  text-align: center;
+  padding: 0 20px 20px;
+  z-index: 10;
+}
+
+.sub-heading {
+  color: #b5935b; /* Shahi Gold */
+  letter-spacing: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family: var(--sans); /* Inherited from your index.css */
+}
+
+.main-heading {
+  font-family: "Cinzel", serif;
+  color: #fdfaf5; /* Ivory White */
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* --- 2. MIDDLE SECTION (Responsive Photo Frame) --- */
+.middle-photo-container {
+  flex: 1; /* Takes up all remaining vertical space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 1000px; /* Fits nicely inside your 1126px root */
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(181, 147, 91, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.framed-photo {
+  width: 100%;
+  height: 100%;
+  /* CRITICAL: object-fit cover + object-position 20% ensures 
+     faces at the top of the photo stay visible on all screens */
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Subtle zoom effect on hover (Desktop only) */
+.middle-photo-container:hover .framed-photo {
+  transform: scale(1.05);
+}
+
+/* --- 3. BOTTOM SECTION (Fixed Height Timer) --- */
+.bottom-timer-container {
+  flex: 0 0 auto; /* Do not grow, do not shrink */
+  padding: 30px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 10;
+}
+
+.timer-tag {
+  color: #b5935b;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  opacity: 0.8;
+  text-transform: uppercase;
+  font-family: var(--sans);
+}
+
+.mini-flip-grid {
+  display: flex;
+  gap: clamp(8px, 2vw, 15px);
+}
+
+/* --- FLIP CARD STYLING --- */
+.glass-card-frame {
+  position: relative;
+  width: clamp(60px, 10vw, 85px);
+  height: clamp(75px, 12vw, 100px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(181, 147, 91, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.glass-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-num {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: #fdfaf5;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.glass-divider {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: rgba(181, 147, 91, 0.3);
+  z-index: 5;
+}
+
+.glass-label {
+  display: block;
+  color: #b5935b;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 700;
+  font-family: var(--sans);
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .sandwich-layout {
+    padding: 30px 0;
+  }
+  .middle-photo-container {
+    width: 95%;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .sandwich-layout {
+    padding: 20px 0;
+    gap: 10px;
+  }
+
+  .middle-photo-container {
+    width: 100%; /* Edge-to-edge on mobile for cinema feel */
+    border-radius: 0;
+    flex: 0 0 50vh; /* Lock height to 50% of the screen */
+    border-left: none;
+    border-right: none;
+  }
+
+  .main-heading {
+    font-size: 1.8rem;
+  }
+
+  .glass-card-frame {
+    width: 65px;
+    height: 80px;
+  }
+
+  .glass-num {
+    font-size: 2.2rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .top-content {
+    padding-top: 10px;
+  }
+  .middle-photo-container {
+    flex: 0 0 45vh;
+  }
+  .mini-flip-grid {
+    gap: 8px;
+  }
+  .glass-card-frame {
+    width: 60px;
+    height: 75px;
+  }
+}
+
+/* Landscape Mode (Short heights) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .sandwich-layout {
+    height: auto;
+  }
+  .middle-photo-container {
+    height: 300px;
+    flex: none;
+  }
+}

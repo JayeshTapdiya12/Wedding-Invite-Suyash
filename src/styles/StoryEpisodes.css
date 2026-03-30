@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap");
+
+.episodes-section {
+  background: #050705; /* Deep Onyx */
+  padding: 100px 20px;
+  overflow: hidden;
+}
+
+.episodes-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ================= HEADER ================= */
+.ep-header-main {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 5px;
+  color: #b5935b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  color: #fdfaf5;
+  margin-top: 10px;
+}
+
+.gold-accent-bar {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #b5935b, transparent);
+  margin: 20px auto;
+}
+
+/* ================= CARDS ================= */
+.episode-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.episode-card {
+  position: relative;
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  background: rgba(255, 252, 249, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(181, 147, 91, 0.1);
+  transition: all 0.4s ease;
+  overflow: hidden; /* Important for the shimmer effect */
+}
+
+/* Gold Shimmer Sweep on Hover */
+.episode-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(181, 147, 91, 0.1),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.8s;
+}
+
+.episode-card:hover::before {
+  left: 150%;
+}
+
+.episode-card:hover {
+  background: rgba(255, 252, 249, 0.06);
+  border-color: rgba(181, 147, 91, 0.4);
+  transform: translateX(10px);
+}
+
+.ep-num {
+  font-family: "Cinzel";
+  font-size: 1.8rem;
+  color: rgba(181, 147, 91, 0.2);
+  font-weight: 700;
+}
+
+.ep-layout {
+  display: flex;
+  gap: 40px;
+  flex: 1;
+  align-items: center;
+}
+
+/* ================= IMAGE (PERFECTED) ================= */
+.ep-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px; /* Big Cinematic Image */
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(181, 147, 91, 0.2);
+}
+
+.ep-img-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* FOCUS ON FACES: center 20% ensures the top part of the image is shown */
+  object-position: center 20%;
+}
+
+.image-overlay-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5, 7, 5, 0.7) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* ================= TEXT ================= */
+.ep-text-content {
+  flex: 1;
+}
+
+.ep-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.ep-date-label,
+.ep-category {
+  color: #b5935b;
+  font-family: "Montserrat";
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.gold-dot {
+  width: 4px;
+  height: 4px;
+  background: #b5935b;
+  border-radius: 50%;
+}
+
+.ep-title-text {
+  font-family: "Cinzel";
+  font-size: 1.8rem;
+  color: #fdfaf5;
+  margin: 0 0 15px 0;
+  letter-spacing: 1px;
+}
+
+.ep-description-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: rgba(253, 250, 245, 0.6);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Decorative Progress Line (like Netflix) */
+.ep-footer-line {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #b5935b;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .ep-image-wrapper {
+    max-width: 320px;
+  }
+  .ep-layout {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ep-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ep-image-wrapper {
+    max-width: 100%;
+  }
+  .ep-num-sidebar {
+    display: none;
+  }
+  .ep-title-text {
+    font-size: 1.5rem;
+  }
+  .episode-card {
+    padding: 20px;
+  }
+}
