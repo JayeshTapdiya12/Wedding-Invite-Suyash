@@ -1,11 +1,10 @@
-/* ================= COMPONENT CONTAINER ================= */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap");
+
 .reveal-section {
   position: relative;
-  /* Adjusting height to fit within your flex #root if necessary, 
-     but keeping 100vh for the cinema impact */
-  min-height: 100svh;
+  height: 100vh;
   width: 100%;
-  background-color: #000c1f; /* Deep Midnight */
+  background-color: #000c1f;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -19,174 +18,187 @@
 
 .hero-poster-wrapper {
   width: 100%;
-  height: 115%;
+  height: 120%;
   position: absolute;
-  top: -5%;
+  top: -10%;
 }
 
 .reveal-poster-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
-  /* Using your global filter preferences but boosting for drama */
-  filter: contrast(1.1) brightness(0.7);
+  object-position: center 25%;
 }
 
-.imperial-overlay-mesh {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(0, 12, 31, 0.3) 1px, transparent 1px);
-  background-size: 4px 4px;
-  opacity: 0.4;
-}
-
-.hero-gradient-shimmer {
+/* Base Gradient for Mobile */
+.hero-gradient-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.2) 0%,
-    transparent 50%,
-    rgba(0, 12, 31, 0.9) 90%,
+    rgba(0, 12, 31, 0.2) 0%,
+    transparent 40%,
+    rgba(0, 12, 31, 0.9) 85%,
     #000c1f 100%
   );
+  z-index: 2;
 }
 
-/* ================= CONTENT LAYER ================= */
+/* Content Container */
 .hero-content-reveal {
   position: relative;
-  flex: 1; /* Works with your #root flex direction */
+  z-index: 10;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Mobile default */
   align-items: center;
-  padding: 60px 20px;
+  padding-bottom: 60px;
   text-align: center;
-  z-index: 10;
 }
 
-/* Shahi Badge - Using your --accent where gold isn't required */
 .shahi-badge {
   border: 1px solid #c6a15a;
-  padding: 6px 16px;
-  margin-bottom: 20px;
+  padding: 4px 12px;
   color: #c6a15a;
-  font-family: var(--sans); /* Matching your index.css */
-  font-size: 0.7rem;
-  letter-spacing: 3px;
-  background: rgba(198, 161, 90, 0.1);
-  border-radius: 4px;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
 }
 
 .royal-production-text {
-  font-family: var(--sans);
-  letter-spacing: 0.5em;
-  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
-  font-weight: 600;
+  letter-spacing: 0.4em;
+  font-size: 0.65rem;
   color: #fdfaf5;
-  opacity: 0.9;
-  margin-bottom: 12px;
-  text-transform: uppercase;
+  margin-bottom: 5px;
 }
 
-/* Using your h1 sizing logic but with Cinzel for the Wedding feel */
 .cinzel-title {
   font-family: "Cinzel", serif;
-  font-size: clamp(2.4rem, 8vw, 5.5rem); /* Scaled for your 1126px width */
-  font-weight: 700;
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
   color: #fdfaf5;
-  line-height: 1.1;
-  text-transform: uppercase;
-  margin: 0; /* Overriding your global h1 margins */
+  margin: 0;
+  line-height: 1;
+}
+
+.heart-icon {
+  display: block;
+  font-size: 1.5rem;
+  margin: 5px 0;
 }
 
 .shimmer-text {
-  background: linear-gradient(
-    to right,
-    #fdfaf5 20%,
-    #c6a15a 40%,
-    #d4a373 60%,
-    #fdfaf5 80%
-  );
+  background: linear-gradient(to right, #fdfaf5 20%, #c6a15a 50%, #fdfaf5 80%);
   background-size: 200% auto;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  animation: shine 6s linear infinite;
+  animation: shine 5s linear infinite;
 }
 
+.shahi-meta-tags {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: rgba(253, 250, 245, 0.8);
+}
+
+.shahi-dot {
+  width: 4px;
+  height: 4px;
+  background: #c6a15a;
+  border-radius: 50%;
+}
+
+.play-btn-royal {
+  margin-top: 25px;
+  padding: 12px 40px;
+  background: #fdfaf5;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* ================= WEB VIEW (DESKTOP) REFINEMENTS ================= */
+@media (min-width: 1025px) {
+  /* 1. Pull Image UP to move faces away from center */
+  .hero-poster-wrapper {
+    top: -25%;
+  }
+
+  .reveal-poster-img {
+    object-position: center 10%; /* Forces the top of the photo to show */
+  }
+
+  /* 2. Push text to the very bottom to clear the faces */
+  .hero-content-reveal {
+    justify-content: flex-end;
+    padding-bottom: 10vh; /* Keeps text in the bottom strip */
+  }
+
+  /* 3. Deepen the darkness at the bottom for readability */
+  .hero-gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 12, 31, 0) 0%,
+      rgba(0, 12, 31, 0) 40%,
+      /* Completely clear where faces are */ rgba(0, 12, 31, 0.8) 70%,
+      #000c1f 100%
+    );
+  }
+
+  .cinzel-title {
+    font-size: 5vw; /* Perfectly scaled for wide screens */
+    letter-spacing: 0.05em;
+  }
+
+  .name-title-group {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Side-by-side names on desktop to save vertical space */
+  }
+
+  .heart-icon {
+    font-size: 2.5vw;
+    margin: 0;
+  }
+
+  .shahi-badge {
+    margin-bottom: 25px;
+    font-size: 0.8rem;
+  }
+  .royal-production-text {
+    margin-bottom: 15px;
+  }
+  .hero-actions-container {
+    margin-top: 40px;
+  }
+}
+
+/* Animations */
 @keyframes shine {
   to {
     background-position: 200% center;
   }
 }
 
-.shahi-meta-tags {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
-  font-family: var(--sans);
-  font-size: clamp(0.75rem, 1.5vw, 1rem);
-  color: #fdfaf5;
-}
-
-.shahi-dot {
-  width: 5px;
-  height: 5px;
-  background-color: #c6a15a;
-  border-radius: 50%;
-}
-
-/* ================= BUTTONS ================= */
-.hero-actions-container {
-  display: flex;
-  gap: 15px;
-  margin-top: 35px;
-  width: 100%;
-  max-width: 500px;
-}
-
-.play-btn-royal {
-  flex: 1;
-  padding: 16px;
-  background: #fdfaf5;
-  color: #000c1f;
-  border: none;
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.info-btn-glass {
-  flex: 1;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fdfaf5;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 8px;
-}
-
-/* ================= SCROLL INDICATOR ================= */
 .scroll-indicator {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 20;
 }
 
 .mouse {
-  width: 22px;
-  height: 38px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
+  width: 20px;
+  height: 35px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
   display: flex;
   justify-content: center;
 }
@@ -195,37 +207,53 @@
   width: 3px;
   height: 6px;
   background: #c6a15a;
-  border-radius: 2px;
-  margin-top: 6px;
-  animation: drop 2s infinite;
+  margin-top: 5px;
+  animation: scrollWheel 2s infinite;
 }
 
-@keyframes drop {
+@keyframes scrollWheel {
   0% {
     transform: translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translateY(15px);
+    transform: translateY(10px);
     opacity: 0;
   }
 }
 
-/* ================= RESPONSIVE ADJUSTMENTS ================= */
-@media (max-width: 1024px) {
-  .cinzel-title {
-    font-size: 3.5rem;
+/* ================= DESKTOP: BOTTOM ALIGN ================= */
+@media (min-width: 1025px) {
+  .hero-content-reveal {
+    justify-content: flex-end; /* ✅ Push content to bottom */
+    align-items: flex-start; /* ✅ Left align (Netflix style) */
+    text-align: left; /* ✅ Text left aligned */
+    padding: 60px 80px; /* ✅ Cinematic spacing */
+    max-width: 100%;
+  }
+
+  .name-title-group {
+    justify-content: flex-start; /* ✅ Align names left */
+  }
+
+  .shahi-meta-tags {
+    justify-content: flex-start; /* ✅ Align meta left */
+    text-align: left;
+  }
+
+  .hero-actions-container {
+    justify-content: flex-start; /* ✅ Button left */
   }
 }
+/* ================= DESKTOP IMAGE FIX ================= */
+@media (min-width: 1025px) {
+  .hero-poster-wrapper {
+    height: 120%; /* Slight zoom for cinematic feel */
+    top: -10%; /* Lift image upward */
+  }
 
-@media (max-width: 768px) {
-  .hero-content-reveal {
-    padding: 40px 15px 80px;
-  }
-  .cinzel-title {
-    font-size: 2.8rem;
-  }
-  .hero-actions-container {
-    flex-direction: column;
+  .reveal-poster-img {
+    object-fit: contain;
+    object-position: center 20%; /* ✅ KEY FIX (adjust face position) */
   }
 }
