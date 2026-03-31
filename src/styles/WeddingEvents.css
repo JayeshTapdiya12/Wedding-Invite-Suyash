@@ -1,37 +1,39 @@
-.v-timeline-section {
-  background: #000c1f;
-  padding: 120px 20px;
-  color: #fff;
-  position: relative;
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap");
+
+.wedding-events-wrapper {
+  background: #000c1f; /* Deep Royal Navy */
+  padding: 100px 20px;
+  color: #ffffff;
+  overflow: hidden;
 }
 
-.v-timeline-header {
+.itinerary-intro {
   text-align: center;
   margin-bottom: 100px;
 }
 
-.v-subtitle {
+.intro-label {
   font-family: "Montserrat", sans-serif;
   letter-spacing: 6px;
+  font-size: 0.7rem;
   color: #c6a15a;
-  font-size: 0.75rem;
-  display: block;
+  margin-bottom: 10px;
 }
 
-.v-title {
+.intro-title {
   font-family: "Cinzel", serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
-  margin: 10px 0;
+  margin: 0;
 }
 
-.v-gold-line {
+.royal-accent-line {
   width: 80px;
-  height: 1px;
-  background: #c6a15a;
-  margin: 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c6a15a, transparent);
+  margin: 20px auto;
 }
 
-/* Timeline Core */
+/* Timeline Layout */
 .v-timeline-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -41,22 +43,17 @@
   gap: 80px;
 }
 
-.v-main-line {
+.timeline-vertical-bar {
   position: absolute;
   left: 50%;
   top: 0;
   width: 1px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(198, 161, 90, 0.4),
-    transparent
-  );
+  background: rgba(198, 161, 90, 0.2);
   transform: translateX(-50%);
   z-index: 1;
 }
 
-.v-event-item {
+.timeline-row {
   display: flex;
   align-items: center;
   width: 100%;
@@ -64,127 +61,126 @@
   z-index: 2;
 }
 
-.v-event-item.v-reverse {
+.row-reverse {
   flex-direction: row-reverse;
 }
 
-/* FULL PHOTO CARD DESIGN */
-.v-event-card {
+/* The Glass Card */
+.event-glass-card {
   flex: 1;
   max-width: 520px;
-  perspective: 1000px;
-}
-
-.v-card-inner {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 4px;
+  border-radius: 15px;
   overflow: hidden;
-  transition: transform 0.4s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: 0.4s ease;
 }
 
-.v-card-inner:hover {
-  transform: translateY(-5px);
-  border-color: rgba(198, 161, 90, 0.3);
+.event-glass-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(198, 161, 90, 0.4);
 }
 
-.v-card-img-full {
+.card-media-wrapper {
   width: 100%;
-  /* This ensures the full vertical photo is shown without cropping */
-  height: auto;
+  position: relative;
   background: #000;
 }
 
-.v-card-img-full img {
+.card-media-content {
   width: 100%;
   height: auto;
+  max-height: 550px; /* Adjust based on your invitation page height */
   display: block;
-  /* 'contain' ensures no part of your image is cut off */
-  object-fit: contain;
+  object-fit: contain; /* Shows full vertical photo without cropping */
 }
 
-.v-card-info {
-  padding: 40px;
-  position: relative;
-}
-
-.v-id {
+.media-badge {
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
+  padding: 4px 12px;
   font-family: "Cinzel", serif;
-  font-size: 5rem;
-  opacity: 0.2;
-  font-weight: 900;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  border-radius: 4px;
 }
 
-.v-label {
+.card-details {
+  padding: 40px;
+}
+
+.event-label {
   text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 1rem;
-  margin-bottom: 12px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 3px;
+  font-size: 0.7rem;
+  margin-bottom: 10px;
 }
 
-.v-name {
+.event-heading {
   font-family: "Cinzel", serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 25px;
   line-height: 1.2;
 }
 
-.v-meta p {
+.event-info-grid p {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
   opacity: 0.8;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.v-btn {
+.dress-code-btn {
   margin-top: 30px;
   background: transparent;
   border: 1px solid;
   padding: 10px 25px;
-  cursor: pointer;
   font-family: "Cinzel", serif;
   font-size: 0.75rem;
-  letter-spacing: 1px;
+  cursor: pointer;
   transition: 0.3s;
 }
 
-.v-btn:hover {
+.dress-code-btn:hover {
   background: white;
   color: #000c1f !important;
 }
 
-/* Timeline Dot */
-.v-dot-container {
-  width: 80px;
+/* Timeline Center Node */
+.timeline-node-area {
+  width: 100px;
   display: flex;
   justify-content: center;
 }
 
-.v-dot {
+.node-circle {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   position: relative;
+  z-index: 10;
 }
 
-.v-dot-pulse {
+.node-ring {
   position: absolute;
-  inset: -4px;
+  inset: -6px;
   border-radius: 50%;
-  border: 1px solid inherit;
-  animation: v-pulse 2s infinite;
+  opacity: 0.4;
+  animation: node-pulse 2s infinite;
 }
 
-@keyframes v-pulse {
+@keyframes node-pulse {
   0% {
     transform: scale(1);
-    opacity: 1;
+    opacity: 0.6;
   }
   100% {
     transform: scale(3);
@@ -192,32 +188,51 @@
   }
 }
 
-.v-empty-space {
+.timeline-spacer {
   flex: 1;
 }
 
-/* Mobile Fixes */
-@media (max-width: 900px) {
-  .v-main-line {
-    left: 30px;
+/* Responsive Logic (Mobile First) */
+@media (max-width: 1024px) {
+  .timeline-vertical-bar {
+    left: 20px;
+    transform: none;
   }
-  .v-event-item,
-  .v-event-item.v-reverse {
+  .timeline-row,
+  .row-reverse {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 30px;
   }
-  .v-dot-container {
-    width: 60px;
+  .timeline-node-area {
     position: absolute;
-    left: 0;
-    top: 20px;
+    left: -30px;
+    top: 25px;
+    width: 100px;
   }
-  .v-event-card {
-    margin-left: 60px;
-    max-width: calc(100% - 80px);
+  .event-glass-card {
+    margin-left: 50px;
+    max-width: calc(100% - 70px);
   }
-  .v-empty-space {
+  .timeline-spacer {
     display: none;
   }
+}
+
+@media (max-width: 480px) {
+  .card-details {
+    padding: 25px;
+  }
+  .event-heading {
+    font-size: 1.5rem;
+  }
+}
+.v-id {
+  position: absolute;
+  bottom: 27vh;
+  right: 20px;
+  font-family: "Cinzel", serif;
+  font-size: 3rem;
+  opacity: 0.25;
+  font-weight: 900;
 }
