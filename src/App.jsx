@@ -7,6 +7,7 @@ import './App.css';
 import CountDown from './compoments/CountDown';
 import StoryEpisodes from './compoments/StoryEpisodes';
 import WeddingEvents from './compoments/WeddingEvents';
+import VenueSection from './compoments/VenueSection';
 
 function App() {
   const [stage, setStage] = useState("intro");
@@ -40,6 +41,7 @@ function App() {
                 <CountDown />
                 <StoryEpisodes />
                 <WeddingEvents />
+                <VenueSection />
               </>
             } />
           </Routes>
