@@ -31,7 +31,7 @@ const weddingEvents = [
         time: "03:00 PM",
         accent: "#ab8b21",
         img: "https://res.cloudinary.com/dwsv6ggaa/image/upload/v1774885909/page_06_bjizdf.png",
-        video: null
+        video: "https://res.cloudinary.com/dwsv6ggaa/video/upload/v1774977105/Untitled_design_2_thwq1m.mp4"
     },
     {
         id: "04",
