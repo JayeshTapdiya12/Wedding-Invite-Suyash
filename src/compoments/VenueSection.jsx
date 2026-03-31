@@ -27,7 +27,7 @@ const VenueSection = () => {
                 >
                     {/* 1. Portal Header */}
                     <header className="portal-header">
-                        <h2 className="v-portal-heading shimmer-text">The Destination</h2>
+                        <h5 className="v-portal-heading shimmer-text">The Destination</h5>
                         <div className="v-divider"></div>
                     </header>
 
