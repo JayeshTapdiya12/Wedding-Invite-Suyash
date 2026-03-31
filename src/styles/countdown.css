@@ -1,212 +1,176 @@
-/* ================= COUNTDOWN SECTION (SANDWICH) ================= */
-.sandwich-layout {
+.premium-countdown-section {
   position: relative;
-  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #e6e6fa; /* Deep Midnight Navy */
-  padding: 40px 0;
-  box-sizing: border-box;
+  padding: 80px 15px;
+  background: #000c1f;
   overflow: hidden;
-}
-
-/* --- 1. TOP SECTION (Fixed Height Content) --- */
-.top-content {
-  flex: 0 0 auto; /* Do not grow, do not shrink */
   text-align: center;
-  padding: 0 20px 20px;
-  z-index: 10;
 }
 
-.sub-heading {
-  color: #b5935b; /* Shahi Gold */
-  letter-spacing: 6px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  font-family: var(--sans); /* Inherited from your index.css */
-}
-
-.main-heading {
-  font-family: "Cinzel", serif;
-  color: #fdfaf5; /* Ivory White */
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  margin: 0;
-  letter-spacing: 2px;
-}
-
-/* --- 2. MIDDLE SECTION (Responsive Photo Frame) --- */
-.middle-photo-container {
-  flex: 1; /* Takes up all remaining vertical space */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  max-width: 1000px; /* Fits nicely inside your 1126px root */
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(181, 147, 91, 0.2);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-}
-
-.framed-photo {
-  width: 100%;
-  height: 100%;
-  /* CRITICAL: object-fit cover + object-position 20% ensures 
-     faces at the top of the photo stay visible on all screens */
-  object-fit: cover;
-  object-position: center 20%;
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Subtle zoom effect on hover (Desktop only) */
-.middle-photo-container:hover .framed-photo {
-  transform: scale(1.05);
-}
-
-/* --- 3. BOTTOM SECTION (Fixed Height Timer) --- */
-.bottom-timer-container {
-  flex: 0 0 auto; /* Do not grow, do not shrink */
-  padding: 30px 20px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  z-index: 10;
-}
-
-.timer-tag {
-  color: #b5935b;
-  font-size: 0.65rem;
-  letter-spacing: 3px;
-  font-weight: 700;
-  opacity: 0.8;
-  text-transform: uppercase;
-  font-family: var(--sans);
-}
-
-.mini-flip-grid {
-  display: flex;
-  gap: clamp(8px, 2vw, 15px);
-}
-
-/* --- FLIP CARD STYLING --- */
-.glass-card-frame {
-  position: relative;
-  width: clamp(60px, 10vw, 85px);
-  height: clamp(75px, 12vw, 100px);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(181, 147, 91, 0.3);
-  border-radius: 8px;
-  overflow: hidden;
-  backdrop-filter: blur(5px);
-}
-
-.glass-card {
+.royal-bg-overlay {
   position: absolute;
   inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(198, 161, 90, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.chronicle-subtitle {
+  font-family: "Montserrat", sans-serif;
+  color: #c6a15a;
+  letter-spacing: 6px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.wedding-date-banner {
+  margin-bottom: 25px;
+}
+
+.display-date {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2rem, 7vw, 4rem);
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+}
+
+.ampersand {
+  color: #c6a15a;
+  font-style: italic;
+  font-family: "Cinzel", serif;
+}
+
+.display-year {
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
+  color: #c6a15a;
+  letter-spacing: 10px;
+  margin-top: 8px;
+}
+
+.royal-accent-line {
+  width: 50px;
+  height: 1px;
+  background: #c6a15a;
+  margin: 20px auto 40px;
+}
+
+/* HORIZONTAL ROW LOGIC */
+.timer-horizontal-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Spacing between units */
+  margin: 0 auto 60px auto;
+  flex-wrap: nowrap; /* Forces one row */
+  max-width: 100%;
+}
+
+.time-orbit-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto; /* Prevents shrinking */
+}
+
+.glass-circle {
+  width: 85px;
+  height: 85px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.glass-num {
-  font-family: "Cinzel", serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  color: #fdfaf5;
-  font-weight: 700;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.glass-divider {
+.progress-ring {
+  transform: rotate(-90deg);
   position: absolute;
-  top: 50%;
   width: 100%;
-  height: 1px;
-  background: rgba(181, 147, 91, 0.3);
-  z-index: 5;
+  height: 100%;
 }
 
-.glass-label {
-  display: block;
-  color: #b5935b;
-  font-size: 0.6rem;
+.ring-bg {
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 2;
+}
+
+.ring-progress {
+  fill: transparent;
+  stroke: #c6a15a;
+  stroke-width: 3;
+  stroke-dasharray: 251.2;
+}
+
+.time-value {
+  font-family: "Cinzel", serif;
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.time-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.55rem;
   letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.4);
   margin-top: 10px;
-  text-align: center;
-  font-weight: 700;
-  font-family: var(--sans);
+  display: block;
 }
 
-/* ================= RESPONSIVE BREAKPOINTS ================= */
-
-/* Tablets */
-@media (max-width: 1024px) {
-  .sandwich-layout {
-    padding: 30px 0;
-  }
-  .middle-photo-container {
-    width: 95%;
-  }
+/* Portrait Frame */
+.couple-portrait-container {
+  max-width: 380px;
+  margin: 0 auto;
+  position: relative;
 }
 
-/* Mobile Devices */
-@media (max-width: 768px) {
-  .sandwich-layout {
-    padding: 20px 0;
-    gap: 10px;
-  }
-
-  .middle-photo-container {
-    width: 100%; /* Edge-to-edge on mobile for cinema feel */
-    border-radius: 0;
-    flex: 0 0 50vh; /* Lock height to 50% of the screen */
-    border-left: none;
-    border-right: none;
-  }
-
-  .main-heading {
-    font-size: 1.8rem;
-  }
-
-  .glass-card-frame {
-    width: 65px;
-    height: 80px;
-  }
-
-  .glass-num {
-    font-size: 2.2rem;
-  }
+.portrait-frame {
+  padding: 10px;
+  border: 1px solid rgba(198, 161, 90, 0.2);
+  background: rgba(255, 255, 255, 0.02);
 }
 
-/* Small Mobile Devices */
+.portrait-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.frame-overlay-gold {
+  position: absolute;
+  inset: 10px;
+  border: 1px solid #c6a15a;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* MOBILE OPTIMIZATION */
 @media (max-width: 480px) {
-  .top-content {
-    padding-top: 10px;
+  .timer-horizontal-row {
+    gap: 8px; /* Tighter gap on small screens */
   }
-  .middle-photo-container {
-    flex: 0 0 45vh;
-  }
-  .mini-flip-grid {
-    gap: 8px;
-  }
-  .glass-card-frame {
-    width: 60px;
-    height: 75px;
-  }
-}
 
-/* Landscape Mode (Short heights) */
-@media (max-height: 500px) and (orientation: landscape) {
-  .sandwich-layout {
-    height: auto;
+  .glass-circle {
+    width: 65px;
+    height: 65px;
   }
-  .middle-photo-container {
-    height: 300px;
-    flex: none;
+
+  .time-value {
+    font-size: 1.2rem;
+  }
+
+  .time-label {
+    font-size: 0.45rem;
+    letter-spacing: 1px;
   }
 }
