@@ -6,21 +6,18 @@ const episodes = [
     {
         id: "01",
         title: "The First Glance",
-        date: "NOV 2024",
         desc: "A chance meeting in the heart of the city that sparked a royal conversation and a lifetime of memories.",
         img: "https://res.cloudinary.com/dwsv6ggaa/image/upload/v1774882956/WhatsApp_Image_2026-03-13_at_15.21.36_tqm9ny.jpg",
     },
     {
         id: "02",
         title: "The Imperial Promise",
-        date: "JAN 2025",
         desc: "Under the starlit sky, two hearts decided to walk the path of gold together, promising a forever built on trust.",
         img: "https://res.cloudinary.com/dwsv6ggaa/image/upload/v1774883582/642ddf98-7e57-426c-932e-9bf96672968b_t47l5b.jpg",
     },
     {
         id: "03",
         title: "The Grand Premiere",
-        date: "APRIL 2026",
         desc: "The highly anticipated final chapter where the red carpet rolls out and our forever officially begins.",
         img: "https://res.cloudinary.com/dwsv6ggaa/image/upload/v1774882995/WhatsApp_Image_2026-03-24_at_15.06.09_2_pnk8rn.jpg",
     }
@@ -88,7 +85,6 @@ const StoryEpisodes = () => {
 
                                 <div className="ep-text-content">
                                     <div className="ep-top-row">
-                                        <span className="ep-date-label">{ep.date}</span>
                                         <div className="gold-dot"></div>
                                         <span className="ep-category">CHAPTER</span>
                                     </div>
