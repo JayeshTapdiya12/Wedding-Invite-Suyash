@@ -9,6 +9,7 @@ import StoryEpisodes from './compoments/StoryEpisodes';
 import WeddingEvents from './compoments/WeddingEvents';
 import VenueSection from './compoments/VenueSection';
 import PhotoGallery from './compoments/PhotoGallery';
+import Blessings from './compoments/Blessing';
 
 function App() {
   const [stage, setStage] = useState("intro");
@@ -43,12 +44,14 @@ function App() {
                 <StoryEpisodes />
                 <WeddingEvents />
                 <VenueSection />
+                <Blessings />
               </>
             } />
             <Route path="/photogallery" element={<PhotoGallery />} />
             <Route path="/venue" element={<VenueSection />} />
             <Route path="/events" element={<WeddingEvents />} />
             <Route path="/story" element={<StoryEpisodes />} />
+            <Route path="/blessing" element={<Blessings />} />
 
           </Routes>
 
