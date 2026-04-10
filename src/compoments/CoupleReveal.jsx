@@ -118,9 +118,7 @@ const CoupleReveal = () => {
                     className="hero-actions-container"
                     variants={textVariants}
                 >
-                    <button className="play-btn-royal">
-                        ▶ Play Trailer
-                    </button>
+
                 </motion.div>
             </motion.div>
         </section>
