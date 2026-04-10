@@ -1,0 +1,117 @@
+.wedding-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 5%;
+  /* Set a background color for when the menu is open or scrolling starts */
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  transition:
+    transform 0.4s ease-in-out,
+    background-color 0.3s ease;
+}
+
+/* Visibility Classes */
+.nav-visible {
+  transform: translateY(0);
+}
+
+.nav-hidden {
+  transform: translateY(-100%);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3d3024;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a.active {
+  color: #d4a373;
+  border-bottom: 2px solid #d4a373;
+}
+
+/* Hamburger & X Animation Logic */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001; /* Stay above the menu drawer */
+    transition: 0.3s;
+  }
+
+  .bar {
+    width: 25px;
+    height: 2px;
+    background: #3d3024;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  /* Transform to X */
+  .hamburger.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.open .bar:nth-child(2) {
+    opacity: 0; /* Hide middle bar */
+  }
+
+  .hamburger.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%; /* Slightly wider for better text space */
+    height: 100vh;
+    background: white; /* Solid background for mobile drawer */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.show {
+    right: 0;
+  }
+
+  /* Optional: Ensure text is readable when menu is open */
+  .nav-links.show a {
+    font-size: 1.2rem;
+    margin: 15px 0;
+  }
+}

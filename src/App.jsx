@@ -8,6 +8,7 @@ import CountDown from './compoments/CountDown';
 import StoryEpisodes from './compoments/StoryEpisodes';
 import WeddingEvents from './compoments/WeddingEvents';
 import VenueSection from './compoments/VenueSection';
+import PhotoGallery from './compoments/PhotoGallery';
 
 function App() {
   const [stage, setStage] = useState("intro");
@@ -44,7 +45,13 @@ function App() {
                 <VenueSection />
               </>
             } />
+            <Route path="/photogallery" element={<PhotoGallery />} />
+            <Route path="/venue" element={<VenueSection />} />
+            <Route path="/events" element={<WeddingEvents />} />
+            <Route path="/story" element={<StoryEpisodes />} />
+
           </Routes>
+
         </div>
       )}
     </Router>
