@@ -1,0 +1,151 @@
+.blessings-section {
+  position: relative;
+  min-height: 100vh; /* Ensures it takes the full screen height */
+  padding: 120px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://res.cloudinary.com/dwsv6ggaa/image/upload/v1774882994/WhatsApp_Image_2026-03-24_at_15.06.08_asvqhn.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.blessings-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(74, 26, 40, 0.4) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+.blessings-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px; /* Wider container for a more "full" look */
+}
+
+.script-accent {
+  display: block;
+  font-family: "Pinyon Script", cursive;
+  font-size: 2.2rem;
+  color: #d4a373;
+  margin-bottom: 5px;
+}
+
+.blessings-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #fff8f0;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.blessings-gold-line {
+  width: 100px;
+  height: 2px;
+  background: #d4a373;
+  margin: 0 auto 60px;
+}
+
+.blessings-glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 60px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.input-group {
+  margin-bottom: 35px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  color: #d4a373;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.blessings-glass-card input,
+.blessings-glass-card textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  color: #fff8f0;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.blessings-glass-card input:focus,
+.blessings-glass-card textarea:focus {
+  border-color: #d4a373;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-submit {
+  width: 100%;
+  background: #fff8f0;
+  color: #4a1a28;
+  padding: 20px;
+  border-radius: 50px; /* Pill shape for a modern look */
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.btn-submit:hover {
+  background: #d4a373;
+  color: white;
+  letter-spacing: 4px; /* Fun subtle hover effect */
+}
+
+.btn-sent {
+  width: 100%;
+  background: #2d6a4f;
+  color: white;
+  padding: 20px;
+  border-radius: 50px;
+}
+
+/* Positioning for heart burst */
+.heart-burst-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.floating-heart {
+  position: absolute;
+  color: #ff4d6d;
+}
+
+@media (max-width: 768px) {
+  .blessings-glass-card {
+    padding: 40px 25px;
+  }
+  .blessings-section {
+    padding: 80px 15px;
+  }
+}

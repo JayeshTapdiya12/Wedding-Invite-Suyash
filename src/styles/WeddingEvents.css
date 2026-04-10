@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap");
 
 .wedding-events-wrapper {
-  background: #000c1f; /* Deep Royal Navy */
+  background: #000c1f;
+  /* background: linear-gradient(135deg, #fce9d8 0%, #f7d7bc 50%, #f2b988 100%); */
+
   padding: 100px 20px;
   color: #ffffff;
   overflow: hidden;
