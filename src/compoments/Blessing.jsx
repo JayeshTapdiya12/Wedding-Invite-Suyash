@@ -11,7 +11,7 @@ const Blessings = () => {
     const sendEmail = (e) => {
         e.preventDefault();
         emailjs
-            .sendForm("service_kxet42e", "template_kojq5ca", form.current, "irbr7SFLiqDuVojKa")
+            .sendForm("service_dhqe5b4", "template_kojq5ca", form.current, "irbr7SFLiqDuVojKa")
             .then(() => {
                 setSubmitted(true);
                 setShowHearts(true);
