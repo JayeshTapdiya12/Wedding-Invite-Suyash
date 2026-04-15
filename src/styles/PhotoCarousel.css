@@ -1,18 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;500&display=swap");
+
 .carousel-section {
-  background: radial-gradient(circle at center, #1a0f00 0%, #060200 100%);
-  padding: 80px 0;
+  background: radial-gradient(circle at center, #1e130c 0%, #0a0604 100%);
+  padding: 100px 0;
+  position: relative;
   overflow: hidden;
 }
 
-.carousel-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Sparkle background effect */
+.carousel-sparkles {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#f0a500 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.1;
+  animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 500px 500px;
+  }
 }
 
 .carousel-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.ornament-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f0a500, transparent);
+}
+
+.ornament-icon {
+  color: #f0a500;
+  font-size: 1.2rem;
+}
+
+/* Swiper Slide Styling */
+.swiper {
+  width: 100%;
+  padding: 60px 0 100px !important;
+}
+
+.swiper-slide {
+  width: 320px;
+  height: 460px;
+  filter: grayscale(40%) brightness(0.7);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.swiper-slide-active {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.1);
+}
+
+.slide-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 15px; /* Creates space for the frame corner accents */
+}
+
+/* Royal Frame Corners */
+.frame-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #f0a500;
+  z-index: 10;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+.swiper-slide-active .frame-corner {
+  opacity: 1;
+  width: 60px;
+  height: 60px;
+}
+
+.slide-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+}
+
+.slide-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 1s ease;
+}
+
+.swiper-slide-active:hover img {
+  transform: scale(1.1);
+}
+
+/* Info Pane with Text Animation */
+.slide-info-pane {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 20px 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s 0.3s ease; /* Delayed reveal */
+}
+
+.swiper-slide-active .slide-info-pane {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-date {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: #f0a500;
+  text-transform: uppercase;
+}
+
+.info-label {
+  font-family: "Cinzel", serif;
+  font-size: 1.4rem;
+  margin-top: 5px;
+}
+
+/* Film Strip Enhancement */
+.film-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(240, 165, 0, 0.05) 1px, transparent 1px),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 20px,
+      rgba(255, 255, 255, 0.03) 20px,
+      rgba(255, 255, 255, 0.03) 21px
+    );
+  z-index: 5;
+}
+
+/* Custom Nav Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  background: rgba(240, 165, 0, 0.1);
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(240, 165, 0, 0.3);
+  transition: 0.3s;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #f0a500;
+  color: #000 !important;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: 270px;
+    height: 380px;
+  }
+  .carousel-section {
+    padding: 60px 0;
+  }
 }
 
 .carousel-subtitle {
@@ -28,113 +228,4 @@
   font-size: clamp(2rem, 5vw, 3rem);
   color: #f8f4e1;
   margin: 10px 0;
-}
-
-.carousel-gold-line {
-  width: 50px;
-  height: 2px;
-  background: #f0a500;
-  margin: 0 auto;
-}
-
-/* Swiper Sizing */
-.swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 80px;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px; /* Width of the card */
-  height: 400px; /* Height of the card */
-  filter: blur(1px); /* Slightly blur non-active slides */
-  transition: 0.5s;
-}
-
-.swiper-slide-active {
-  filter: blur(0);
-}
-
-.slide-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1px solid rgba(198, 161, 90, 0.3);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
-}
-
-.slide-inner img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%; /* Focus on faces */
-}
-
-/* 3D Decorative Overlay */
-.slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 40%);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 20px;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.swiper-slide-active .slide-overlay {
-  opacity: 1;
-}
-
-.slide-label {
-  color: #f0a500;
-  font-family: "Cinzel", serif;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-}
-
-/* Film Strip Decoration */
-.film-edge {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 15px;
-  background: repeating-linear-gradient(
-    90deg,
-    transparent 0px,
-    transparent 10px,
-    rgba(255, 255, 255, 0.1) 10px,
-    rgba(255, 255, 255, 0.1) 18px
-  );
-  z-index: 2;
-}
-.film-edge.top {
-  top: 5px;
-}
-.film-edge.bottom {
-  bottom: 5px;
-}
-
-/* Customizing Swiper Navigation (Gold) */
-.swiper-button-next,
-.swiper-button-prev {
-  color: #f0a500 !important;
-}
-
-.swiper-pagination-bullet-active {
-  background: #f0a500 !important;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-  .swiper-slide {
-    width: 260px;
-    height: 350px;
-  }
 }
