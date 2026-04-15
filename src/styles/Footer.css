@@ -1,0 +1,197 @@
+.wedding-footer {
+  position: relative;
+  padding: 80px 20px 40px;
+  background-color: #4a1a28;
+  color: #fff8f0;
+  text-align: center;
+  overflow: hidden;
+  font-family: "Playfair Display", serif;
+}
+
+.footer-texture {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Monogram */
+.monogram-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.m-letter {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  color: #d4a373;
+  line-height: 1;
+}
+
+.footer-mid-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Names & Hashtag */
+.footer-names {
+  font-family: "Great Vibes";
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 10px;
+}
+
+.wedding-hashtag {
+  font-family: "Inter", sans-serif;
+  color: #d4a373;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+/* Details Section */
+.footer-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.detail-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #d4a373;
+  margin-bottom: 5px;
+}
+
+.detail-value {
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.detail-separator {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Navigation */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.footer-nav a,
+.back-to-top {
+  color: #fff8f0;
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  transition: 0.3s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-nav a:hover,
+.back-to-top:hover {
+  opacity: 1;
+  color: #d4a373;
+}
+
+/* NEW: Back to Top Button Specific CSS */
+.back-to-top {
+  display: block;
+  margin: 0 auto 20px auto;
+  border: 1px solid rgba(212, 163, 115, 0.3);
+  padding: 8px 20px;
+  border-radius: 4px;
+}
+
+/* Bottom Section */
+.gold-line-dim {
+  width: 60px;
+  height: 1px;
+  background: #d4a373;
+  margin: 0 auto 20px;
+  opacity: 0.3;
+}
+
+.credits-text {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin-bottom: 15px;
+}
+
+/* Heart Pulse */
+.heart-pulse-container {
+  position: relative;
+  display: inline-block;
+}
+
+.footer-heart {
+  fill: #d4a373;
+  position: relative;
+  z-index: 2;
+}
+
+.pulse-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: #d4a373;
+  opacity: 0;
+  animation: footer-pulse 2s infinite;
+}
+
+@keyframes footer-pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .detail-separator {
+    display: none;
+  }
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}

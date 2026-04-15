@@ -10,6 +10,7 @@ import WeddingEvents from './compoments/WeddingEvents';
 import VenueSection from './compoments/VenueSection';
 import PhotoGallery from './compoments/PhotoGallery';
 import Blessings from './compoments/Blessing';
+import Footer from './compoments/Footer';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
                 <WeddingEvents />
                 <VenueSection />
                 <Blessings />
+                <Footer />
               </>
             } />
             <Route path="/photogallery" element={<PhotoGallery />} />
