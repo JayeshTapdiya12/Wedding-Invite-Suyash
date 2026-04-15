@@ -11,6 +11,7 @@ import VenueSection from './compoments/VenueSection';
 import PhotoGallery from './compoments/PhotoGallery';
 import Blessings from './compoments/Blessing';
 import Footer from './compoments/Footer';
+import PhotoCarousel from './compoments/PhotoCarousel';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
                 <CoupleReveal />
                 <CountDown />
                 <StoryEpisodes />
+                <PhotoCarousel />
                 <WeddingEvents />
                 <VenueSection />
                 <Blessings />
