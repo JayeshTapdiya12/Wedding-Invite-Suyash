@@ -146,13 +146,7 @@ const WeddingEvents = () => {
                                     <p><span>⏰</span> {event.time}</p>
                                     <p><span>📍</span> Hotel HR Greens, Indore</p>
                                 </div>
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    className="dress-code-btn"
-                                    style={{ borderColor: event.accent, color: event.accent }}
-                                >
-                                    Dress Code Details
-                                </motion.button>
+
                             </div>
                         </motion.div>
 
