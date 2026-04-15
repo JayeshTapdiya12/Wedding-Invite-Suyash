@@ -35,7 +35,7 @@ const weddingEvents = [
     },
     {
         id: "04",
-        type: "Saggai",
+        type: "Sagai",
         name: "The Ring Ceremony",
         date: "April 25, 2026",
         time: "04:30 PM",
