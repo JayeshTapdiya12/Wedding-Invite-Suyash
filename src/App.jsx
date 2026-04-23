@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RoyalHero from './compoments/RoyalHero';
 import CoupleReveal from './compoments/CoupleReveal';
@@ -13,22 +13,54 @@ import Blessings from './compoments/Blessing';
 import Footer from './compoments/Footer';
 import PhotoCarousel from './compoments/PhotoCarousel';
 
-
 function App() {
   const [stage, setStage] = useState("intro");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
 
   useEffect(() => {
-    // 5.2s duration: Exactly the length of your video fragment
     const timer = setTimeout(() => {
       setStage("reveal");
     }, 7600);
-
     return () => clearTimeout(timer);
   }, []);
 
+  const toggleMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.play().catch(() => {});
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <Router>
-      {/* STAGE 1: Cinematic Intro (Starts immediately) */}
+      <audio ref={audioRef} src="/songs.mpeg" loop preload="auto" />
+
+      {/* Music button — shows 🔇 initially, click to play */}
+      <button 
+        onClick={toggleMusic}
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          zIndex: 1000,
+          padding: '10px',
+          borderRadius: '50%',
+          cursor: 'pointer',
+          background: 'rgba(255,255,255,0.8)',
+          border: '1px solid #ccc'
+        }}
+      >
+        {isPlaying ? "🔊" : "🔇"}
+      </button>
+
+      {/* STAGE 1: Cinematic Intro */}
       {stage === "intro" && (
         <div className="fullscreen-stage">
           <RoyalHero />
@@ -57,9 +89,7 @@ function App() {
             <Route path="/events" element={<WeddingEvents />} />
             <Route path="/story" element={<StoryEpisodes />} />
             <Route path="/blessing" element={<Blessings />} />
-
           </Routes>
-
         </div>
       )}
     </Router>
